@@ -11,10 +11,6 @@
                  2. checkbox won't auto-re-check after uncheck and reload the page
 */
 
-//
-// global variable for ed2k_link groups
-var ed2kXPCenum = 0;
-
 function XPCed2k_CalculateSize (size) {
   //
   // you can use either "navigator.platform" or "navigator.userAgent", this is for 
@@ -109,6 +105,24 @@ function XPCed2kMain () {
     // temp [4] contains "file hash value", others ignore.
     var temp = arguments[i].split('|');
 
+    //
+    // basic ed2k_link error check
+    if ((temp[0] != 'ed2k://') || (temp[1] != 'file') || (temp[4].length != 32)) {
+      //
+      // checksum error
+      document.write('<tr><td></td><td class="XPCed2kFileNameArea">ed2k link error</td><td class="XPCed2kFileSize"></td></tr>');
+      break;
+    } 
+
+    /*
+        //
+        // backup: easy method for file name replace
+        if (temp [2].replace(/%[0-9a-fA-F]{2}/g,"").match(/%/g)){
+          var fileType = temp [2].replace(/%[0-9a-fA-F]{2}/g,"").split(".");
+          temp[2] = 'FileNameError_' + temp [4] + '.' + fileType[fileType.length - 1]; // use hash for unique id
+        }
+    */
+
     var checkForPercentage = temp[2].match ('%'); // check for if % exist, if exist will do 'File name check #1'
     var splitDecodablePercentage = temp[2].split(/%[0-9a-fA-F]{2}/g);    // check for decodable (decodeURIComponent), save splited strings
 
@@ -136,24 +150,6 @@ function XPCed2kMain () {
         stringToGlue = stringToGlue + removeSinglePercentage[glueIndex];
       }
       temp [2] = stringToGlue;
-    }
-
-/*
-    //
-    // backup: easy method for file name replace
-    if (temp [2].replace(/%[0-9a-fA-F]{2}/g,"").match(/%/g)){
-      var fileType = temp [2].replace(/%[0-9a-fA-F]{2}/g,"").split(".");
-      temp[2] = 'FileNameError_' + temp [4] + '.' + fileType[fileType.length - 1]; // use hash for unique id
-    }
-*/
-
-    //
-    // basic ed2k_link error check
-    if ((temp[0] != 'ed2k://') || (temp[1] != 'file') || (temp[4].length != 32)) {
-      //
-      // checksum error
-      document.write('<tr><td></td><td class="XPCed2kFileNameArea">ed2k link error</td><td class="XPCed2kFileSize"></td></tr>');
-      continue;
     }
 
     document.write('<tr>');
