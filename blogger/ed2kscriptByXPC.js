@@ -4,11 +4,12 @@
 //  
 //  Created by Roranicus on 2013-08-26. v1.0
 //   Modify by Roranicus on 2014-07-27. v1.1 fix file name with %
+//   Modify by Roranicus on 2014-07-30. v1.2 fix autocomplete
 //  Copyright 2013 Roranicus. All rights reserved.
 // 
 /*
   TODO Bug list: 1. ed2k link error function will not work
-                 2. checkbox won't auto-re-check after uncheck and reload the page
+                 2. (fix) checkbox won't auto-re-check after uncheck and reload the page
 */
 
 function XPCed2k_CalculateSize (size) {
@@ -155,7 +156,7 @@ function XPCed2kMain () {
     document.write('<tr>');
     //
     // print checkbox and HTML code
-    document.write('<td><input type="checkbox" checked="checked" name="' + ed2kScriptName + '" value="' + arguments[i] + '" onclick="XPCed2k_UpdateTotalSize(\'' + ed2kScriptName + '\');" /></td><td class="XPCed2kFileNameArea"><a href="' + arguments[i] + '">' + unescape(decodeURIComponent(temp[2])) + '</a></td>');
+    document.write('<td><input type="checkbox" checked="checked" name="' + ed2kScriptName + '" value="' + arguments[i] + '" onclick="XPCed2k_UpdateTotalSize(\'' + ed2kScriptName + '\');" autocomplete="off" /></td><td class="XPCed2kFileNameArea"><a href="' + arguments[i] + '">' + unescape(decodeURIComponent(temp[2])) + '</a></td>');
     //
     // print ed2k file size
     Total_ed2k_Size += parseInt(temp[3]);
@@ -163,7 +164,7 @@ function XPCed2kMain () {
     document.write('</tr>');
   }
 
-  document.write('<tr><td><input type="checkbox" checked="checked" id="SelectAll' + ed2kScriptName + '" onClick="XPCed2k_DoSelectAll(\'' + ed2kScriptName + '\',this.checked)" /></td><td class="XPCed2kFileNameArea"><label for="SelectAll' + ed2kScriptName +'">select all</label>&nbsp;&nbsp;&nbsp;&nbsp;<input value="Download selected item(s)" onclick="XPCed2k_DownloadSelectItems(\'' + ed2kScriptName + '\',0,1)" type="button"></td><td class="XPCed2kFileSize" style="color:red; font-weight:bold;" id="SizeOf' + ed2kScriptName +'">' + XPCed2k_CalculateSize(Total_ed2k_Size) +'</td></tr>');
+  document.write('<tr><td><input type="checkbox" checked="checked" id="SelectAll' + ed2kScriptName + '" onClick="XPCed2k_DoSelectAll(\'' + ed2kScriptName + '\',this.checked)" autocomplete="off" /></td><td class="XPCed2kFileNameArea"><label for="SelectAll' + ed2kScriptName +'">select all</label>&nbsp;&nbsp;&nbsp;&nbsp;<input value="Download selected item(s)" onclick="XPCed2k_DownloadSelectItems(\'' + ed2kScriptName + '\',0,1)" type="button"></td><td class="XPCed2kFileSize" style="color:red; font-weight:bold;" id="SizeOf' + ed2kScriptName +'">' + XPCed2k_CalculateSize(Total_ed2k_Size) +'</td></tr>');
   document.write('</table>');
 }
 
