@@ -5,6 +5,7 @@
 //  Created by Roranicus on 2013-08-26. v1.0
 //   Modify by Roranicus on 2014-07-27. v1.1 fix file name with %
 //   Modify by Roranicus on 2014-07-30. v1.2 fix autocomplete
+//   Modify by Roranicus on 2014-08-03. v1.3 remove time delay workaround, add Math.random();
 //  Copyright 2013 Roranicus. All rights reserved.
 // 
 /*
@@ -88,12 +89,9 @@ function XPCed2kMain () {
   //
   // declear a unique id name from current time for every ed2k link groups
   var Time = new Date();
+  var random = Math.random();
   var Total_ed2k_Size = 0;
-  var ed2kScriptName = 'ed2kScript' + Time.getMinutes().toString() + Time.getSeconds().toString() + Time.getMilliseconds().toString();
-
-  //
-  // workaround for stalling time to prevent ed2kScriptName duplicate
-  for (var delay = 0; delay < 0xBADBF0; delay++) {} // 0xBADBF0 = 'bad boyfriend 0' XDDDD, adjust this value to change stall time
+  var ed2kScriptName = 'ed2kScript' + Time.getSeconds().toString() + Time.getMilliseconds().toString() + random;
 
   document.write('<table id="ed2kXPCtableStyleid">');
   for (var i = 0; i < arguments.length; i++) {
