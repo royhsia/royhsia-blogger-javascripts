@@ -89,3 +89,33 @@ function ForEd2kScriptlize () {
 
   document.getElementById('ed2kscriptlizeTextarea').innerHTML = temp;
 }
+
+//
+// Auto generate shortcut links by ClassName
+function AutoClassNameToShortLink (TargetClassName, AutoClassNameToShortLinkSpan) {
+  var ReplacePattern = /[ ,\\\/#@><!?]/g;
+  var innerTEXTcontent, temp;
+  var ClassNameArray = document.getElementsByClassName (TargetClassName);
+
+  if (AutoClassNameToShortLinkSpan === undefined) {
+    AutoClassNameToShortLinkSpan = 'AutoClassNameToShortLinkSpan';
+  }
+  temp = document.getElementById (AutoClassNameToShortLinkSpan).innerHTML + '<ul class=\"AutoGenShortLink\">';
+
+  for (var i = 0; i < ClassNameArray.length; i++) {
+    //
+    // Workaround for Firefox does not support innerText, IE does not support textContent
+    if (ClassNameArray[i].innerText != undefined) {
+      innerTEXTcontent = ClassNameArray[i].innerText;
+    } else {
+      innerTEXTcontent = ClassNameArray[i].textContent;
+    }
+
+    if (!ClassNameArray[i].id) {
+      ClassNameArray[i].id = innerTEXTcontent.replace(ReplacePattern, "");
+    }
+    temp = temp + '<li><a href=\"#' + ClassNameArray[i].id + '\">' + innerTEXTcontent + '</a></li>';
+  }
+  temp = temp + '</ul>';
+  document.getElementById (AutoClassNameToShortLinkSpan).innerHTML = temp;
+}
