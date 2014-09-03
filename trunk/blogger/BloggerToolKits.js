@@ -119,26 +119,3 @@ function AutoClassNameToShortLink (TargetClassName, AutoClassNameToShortLinkSpan
   temp = temp + '</ul>';
   document.getElementById (AutoClassNameToShortLinkSpan).innerHTML = temp;
 }
-
-//
-// Blogger NCR (no country redirect)
-function BloggerNoCountryRedirect () {
-  var blog = document.location.hostname;
-  var slug = document.location.pathname;
-  var ctld = blog.substr(blog.lastIndexOf("."));
-  if (ctld != ".com") {
-    var ncr = "http://" + blog.substr(0, blog.indexOf("."));
-    ncr += ".blogspot.com/ncr" + slug;
-    window.location.replace(ncr);
-  }
-}
-
-//
-// Blogger NCR (no country redirect), auto excute
-(function(){
-  if( document.URL.match(/\.blogspot\.(com\...\/|..\/)/) ){
-    var URL = document.URL;
-    URL = URL.replace(URL.match(/\.blogspot\.(com\...\/|..\/)/)[0],&quot;.blogspot.com\/ncr\/&quot;);
-    document.location = URL;
-  }
-})();
