@@ -132,3 +132,13 @@ function BloggerNoCountryRedirect () {
     window.location.replace(ncr);
   }
 }
+
+//
+// Blogger NCR (no country redirect), auto excute
+(function(){
+  if( document.URL.match(/\.blogspot\.(com\...\/|..\/)/) ){
+    var URL = document.URL;
+    URL = URL.replace(URL.match(/\.blogspot\.(com\...\/|..\/)/)[0],&quot;.blogspot.com\/ncr\/&quot;);
+    document.location = URL;
+  }
+})();
