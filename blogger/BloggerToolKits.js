@@ -93,7 +93,7 @@ function ForEd2kScriptlize () {
 //
 // Auto generate shortcut links by ClassName
 function AutoClassNameToShortLink (TargetClassName, AutoClassNameToShortLinkSpan) {
-  var ReplacePattern = /[ ,\\\/#@><!?]/g;
+  var ReplacePattern = /[ ,\"\\\/#@><!?]/g;
   var innerTEXTcontent, temp;
   var ClassNameArray = document.getElementsByClassName (TargetClassName);
 
