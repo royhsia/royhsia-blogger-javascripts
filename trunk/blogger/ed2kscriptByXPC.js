@@ -93,7 +93,7 @@ function XPCed2kMain () {
   var Total_ed2k_Size = 0;
   var ed2kScriptName = 'ed2kScript' + Time.getSeconds().toString() + Time.getMilliseconds().toString() + random;
 
-  document.write('<table id="ed2kXPCtableStyleid">');
+  document.write('<table class="ed2kXPCtableStyleid">');
   for (var i = 0; i < arguments.length; i++) {
     //
     // split arguments (emule_link)
