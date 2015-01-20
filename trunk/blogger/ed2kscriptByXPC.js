@@ -164,9 +164,9 @@ function XPCed2kMain () {
 
   document.write('<tr><td><input type="checkbox" checked="checked" id="SelectAll' + ed2kScriptName + '" onClick="XPCed2k_DoSelectAll(\'' + ed2kScriptName + '\',this.checked)" autocomplete="off" /></td><td class="XPCed2kFileNameArea"><label for="SelectAll' + ed2kScriptName +'">select all</label>&nbsp;&nbsp;&nbsp;&nbsp;<input value="Download selected item(s)" onclick="XPCed2k_DownloadSelectItems(\'' + ed2kScriptName + '\',0,1)" type="button"></td><td class="XPCed2kFileSize" style="color:red; font-weight:bold;" id="SizeOf' + ed2kScriptName +'">' + XPCed2k_CalculateSize(Total_ed2k_Size) +'</td></tr>');
   document.write('</table>');
-}
 
-//
-// CSS code section
-// I don't know why '.XPCed2kFileNameArea' and '.XPCed2kFileSize' has to be right after '#ed2kXPCtableStyleid', otherwise it won't work.
-document.write('<style type="text/css">.ed2kXPCtableStyleid {word-break:break-all; width:580px;} .ed2kXPCtableStyleid td {background-color: rgb(243, 247, 253); font-size:16px; line-height:22px;} .ed2kXPCtableStyleid input {font-size:16px;} .ed2kXPCtableStyleid .XPCed2kFileNameArea {padding:0.2em;} .ed2kXPCtableStyleid .XPCed2kFileSize {width:6em; text-align:right; font-family:Courier;} </style>');
+  //
+  // CSS code section
+  // I don't know why '.XPCed2kFileNameArea' and '.XPCed2kFileSize' has to be right after '#ed2kXPCtableStyleid', otherwise it won't work.
+  document.write('<style type="text/css">.ed2kXPCtableStyleid {display:inline-table; word-break:break-all; width:580px;} .ed2kXPCtableStyleid td {background-color: rgb(243, 247, 253); font-size:16px; line-height:22px;} .ed2kXPCtableStyleid input {font-size:16px;} .ed2kXPCtableStyleid .XPCed2kFileNameArea {padding:0.2em;} .ed2kXPCtableStyleid .XPCed2kFileSize {width:6em; text-align:right; font-family:Courier;} </style>');
+}
