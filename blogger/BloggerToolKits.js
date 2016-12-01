@@ -120,3 +120,10 @@ function AutoClassNameToShortLink (TargetClassName, AutoClassNameToShortLinkSpan
   temp = temp + '</ul>';
   document.getElementById (AutoClassNameToShortLinkSpan).innerHTML = temp;
 }
+
+//
+// Package Search: t-cat
+function t_catSearch () {
+  var DestinationUrl = "http://www.t-cat.com.tw/inquire/TraceDetail.aspx?BillID=" + document.getElementById ('t-catPackageInquire').value + "&ReturnUrl=Trace.aspx";
+  window.open(DestinationUrl,'_blank');
+}
