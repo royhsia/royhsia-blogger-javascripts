@@ -127,3 +127,10 @@ function t_catSearch () {
   var DestinationUrl = "http://www.t-cat.com.tw/inquire/TraceDetail.aspx?BillID=" + document.getElementById ('t-catPackageInquire').value + "&ReturnUrl=Trace.aspx";
   window.open(DestinationUrl,'_blank');
 }
+
+//
+// Package Search: post
+function postSearch () {
+  var DestinationUrl = "http://postserv.post.gov.tw/webpost/CSController?cmd=POS4001_3&_MENU_ID=189&_SYS_ID=D&_ACTIVE_ID=190&MAILNO=" + document.getElementById ('postPackageInquire').value;
+  window.open(DestinationUrl,'_blank');
+}
