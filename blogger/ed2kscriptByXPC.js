@@ -93,7 +93,7 @@ function XPCed2kMain () {
   var Total_ed2k_Size = 0;
   var ed2kScriptName = 'ed2kScript' + Time.getSeconds().toString() + Time.getMilliseconds().toString() + random;
 
-  document.write('<table class="ed2kXPCtableStyleid">');
+  document.write('<table class="ed2kXPCtableStyle">');
   for (var i = 0; i < arguments.length; i++) {
     //
     // split arguments (emule_link)
@@ -167,6 +167,6 @@ function XPCed2kMain () {
 
   //
   // CSS code section
-  // I don't know why '.XPCed2kFileNameArea' and '.XPCed2kFileSize' has to be right after '#ed2kXPCtableStyleid', otherwise it won't work.
-  document.write('<style type="text/css">.ed2kXPCtableStyleid {display:inline-table; word-break:break-all; width:580px;} .ed2kXPCtableStyleid td {background-color: rgb(243, 247, 253); font-size:16px; line-height:22px;} .ed2kXPCtableStyleid input {font-size:16px;} .ed2kXPCtableStyleid .XPCed2kFileNameArea {padding:0.2em;} .ed2kXPCtableStyleid .XPCed2kFileSize {width:6em; text-align:right; font-family:Courier;} </style>');
+  // I don't know why '.XPCed2kFileNameArea' and '.XPCed2kFileSize' has to be right after '#ed2kXPCtableStyle', otherwise it won't work.
+  document.write('<style type="text/css">.ed2kXPCtableStyle { width:99%; margin:auto; font-size:16px; line-height:initial; max-width:600px; min-width:400px;} .ed2kXPCtableStyle td {background-color: rgb(243, 247, 253);} .XPCed2kFileNameArea {word-break:break-all; padding:0.2em;} .XPCed2kFileSize {width: 5em; padding-right: 7px; text-align:right; font-family:Courier;}</style>');
 }
