@@ -168,5 +168,5 @@ function XPCed2kMain () {
   //
   // CSS code section
   // I don't know why '.XPCed2kFileNameArea' and '.XPCed2kFileSize' has to be right after '#ed2kXPCtableStyle', otherwise it won't work.
-  document.write('<style type="text/css">.ed2kXPCtableStyle { width:99%; margin:auto; font-size:16px; line-height:initial; max-width:600px; min-width:400px;} .ed2kXPCtableStyle td {background-color: rgb(243, 247, 253);} .XPCed2kFileNameArea {word-break:break-all; padding:0.2em;} .XPCed2kFileSize {width: 5em; padding-right: 7px; text-align:right; font-family:Courier;}</style>');
+  document.write('<style type="text/css">.ed2kXPCtableStyle { width:99%; margin:auto; font-size:15px; line-height:initial; max-width:600px; min-width:400px;} .ed2kXPCtableStyle td {background-color: rgb(243, 247, 253);} .XPCed2kFileNameArea {word-break:break-all; padding:0.2em;} .XPCed2kFileSize {width: 5em; padding-right: 7px; text-align:right; font-family:Courier;}</style>');
 }
