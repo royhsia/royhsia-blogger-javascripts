@@ -26,9 +26,9 @@ function replaceSpecificThing (MainStrings, WantedToBeReplace) {
   switch (WantedToBeReplace) {
     case 'textarea_linebreak':
       WantedToBeReplace = '\n';
-      startString = '&lt;textarea rows="10" cols="60" onfocus="this.select();"&gt;';
-      endString = '&lt;/textarea&gt;';
-      replaceString = '&amp;#13;&amp;#10;';
+      startString = '<textarea rows="10" cols="60" onfocus="this.select();">';
+      endString = '</textarea>';
+      replaceString = '&#13;&#10;';
       break;
 
     case 'ed2k_linebreak_replace':
@@ -71,23 +71,6 @@ function replaceSpecificThing (MainStrings, WantedToBeReplace) {
   }
 
   return stringbuffer;
-}
-
-function ForTextAreaScriptlize () {
-  var temp = document.getElementById ('textAreascriptlize').value;
-  temp = replaceSpecificThing (temp, '<');
-  temp = replaceSpecificThing (temp, '>');
-  temp = replaceSpecificThing (temp, '&');
-  temp = replaceSpecificThing (temp, 'textarea_linebreak');
-  
-  document.getElementById('textAreascriptlizeTextarea').innerHTML = temp;
-}
-
-function ForEd2kScriptlize () {
-  var temp = document.getElementById ('ed2kscriptlize').value;
-  temp = replaceSpecificThing (temp, 'ed2k_linebreak_replace');
-
-  document.getElementById('ed2kscriptlizeTextarea').innerHTML = temp;
 }
 
 //
