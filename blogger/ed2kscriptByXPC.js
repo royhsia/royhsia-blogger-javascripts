@@ -145,7 +145,7 @@ function XPCed2kMain () {
     return 0;
   }
 
-  document.write('<table class="ed2kXPCtableStyle">');
+  document.write('<table class="ed2kXPCtableStyle">\n');
   for (var i = 0; i < arg.length; i++) {
     //
     // split arguments (emule_link)
@@ -162,7 +162,7 @@ function XPCed2kMain () {
     if ((temp[0] != 'ed2k://') || (temp[1] != 'file') || (temp[4].length != 32)) {
       //
       // checksum error
-      document.write('<tr><td colspan="3" class="XPCed2kFileNameArea">ed2k link error</td></tr>');
+      document.write('<tr><td colspan="3" class="XPCed2kFileNameArea">ed2k link error</td></tr>\n');
       break;
     } 
 
@@ -184,10 +184,10 @@ function XPCed2kMain () {
     // print ed2k file size
     Total_ed2k_Size += parseInt(temp[3]);
     document.write('<td class="XPCed2kFileSize">' + CalculateSize_ed2kXPC(temp[3]) + '</td>');
-    document.write('</tr>');
+    document.write('</tr>\n');
   }
 
-  document.write('<tr><td><input type="checkbox" checked="checked" id="SelectAll' + ed2kScriptName + '" onClick="DoSelectAll_ed2kXPC(\'' + ed2kScriptName + '\',this.checked)" autocomplete="off" /></td><td class="XPCed2kFileNameArea"><label for="SelectAll' + ed2kScriptName +'">select all</label>&nbsp;&nbsp;&nbsp;&nbsp;<input value="Download selected item(s)" onclick="DownloadSelectItems_ed2kXPC(\'' + ed2kScriptName + '\',0,1)" type="button"></td><td class="XPCed2kFileSize" style="color:red; font-weight:bold;" id="SizeOf' + ed2kScriptName +'">' + CalculateSize_ed2kXPC(Total_ed2k_Size) +'</td></tr>');
+  document.write('<tr><td><input type="checkbox" checked="checked" id="SelectAll' + ed2kScriptName + '" onClick="DoSelectAll_ed2kXPC(\'' + ed2kScriptName + '\',this.checked)" autocomplete="off" /></td><td class="XPCed2kFileNameArea"><label for="SelectAll' + ed2kScriptName +'">select all</label>&nbsp;&nbsp;&nbsp;&nbsp;<input value="Download selected item(s)" onclick="DownloadSelectItems_ed2kXPC(\'' + ed2kScriptName + '\',0,1)" type="button"></td><td class="XPCed2kFileSize" style="color:red; font-weight:bold;" id="SizeOf' + ed2kScriptName +'">' + CalculateSize_ed2kXPC(Total_ed2k_Size) +'</td></tr>\n');
   document.write('</table>');
 
   //
