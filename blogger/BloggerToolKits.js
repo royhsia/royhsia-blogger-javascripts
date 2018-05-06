@@ -98,7 +98,7 @@ function AutoClassNameToShortLink (TargetClassName, AutoClassNameToShortLinkSpan
       ClassNameArray[i].id = innerTEXTcontent.replace(ReplacePattern, "");
       ClassNameArray[i].id = innerTEXTcontent.replace(/\n/g, ""); // try to fix blogger auto line break error
     }
-    temp = temp + '<li><a href=\"#' + ClassNameArray[i].id + '\">' + innerTEXTcontent + '</a></li>';
+    temp = temp + '<li><a href=\"#' + ClassNameArray[i].id + '\">' + innerTEXTcontent + '</a></li>\n';
   }
   temp = temp + '</ul>';
   document.getElementById (AutoClassNameToShortLinkSpan).innerHTML = temp;
