@@ -25,6 +25,8 @@ function replaceSpecificThing (MainStrings, WantedToBeReplace) {
 
   switch (WantedToBeReplace) {
     case 'textarea_linebreak':
+      // pre-soaking the string
+      MainStrings = MainStrings.replace(/</g, '&lt;').replace(/>/g, '&gt;');//.replace(/&/g, '&amp;');
       WantedToBeReplace = '\n';
       startString = '<textarea rows="10" cols="60" onfocus="this.select();">';
       endString = '</textarea>';
@@ -61,16 +63,18 @@ function replaceSpecificThing (MainStrings, WantedToBeReplace) {
   }
 
   var teststring = MainStrings.split(WantedToBeReplace);
-  var stringbuffer = startString;
+  let rsltStr = new String ();
   for (var i = 0; i < teststring.length; i++) {
-    if (i+1 == teststring.length) {
-      stringbuffer = stringbuffer + teststring[i] + endString; // this is end
-    } else {
-      stringbuffer = stringbuffer + teststring[i] + replaceString;
-    }
+	rsltStr += teststring[i];
+	if ((i + 1) != teststring.length)
+	{
+		rsltStr += replaceString;
+	}
   }
+  rsltStr = startString + rsltStr + endString;
+  console.log (rsltStr);
 
-  return stringbuffer;
+  return rsltStr;
 }
 
 //
