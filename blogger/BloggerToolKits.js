@@ -26,7 +26,7 @@ function replaceSpecificThing (MainStrings, WantedToBeReplace) {
   switch (WantedToBeReplace) {
     case 'textarea_linebreak':
       // pre-soaking the string
-      MainStrings = MainStrings.replace(/</g, '&lt;').replace(/>/g, '&gt;');//.replace(/&/g, '&amp;');
+//      MainStrings = MainStrings.replace(/</g, '&lt;').replace(/>/g, '&gt;');//.replace(/&/g, '&amp;');
       WantedToBeReplace = '\n';
       startString = '<textarea rows="10" cols="60" onfocus="this.select();">';
       endString = '</textarea>';
