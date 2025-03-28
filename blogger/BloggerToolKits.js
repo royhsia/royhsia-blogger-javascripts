@@ -121,3 +121,31 @@ function postSearch () {
   var DestinationUrl = "http://postserv.post.gov.tw/webpost/CSController?cmd=POS4001_3&_MENU_ID=189&_SYS_ID=D&_ACTIVE_ID=190&MAILNO=" + document.getElementById ('postPackageInquire').value;
   window.open(DestinationUrl,'_blank');
 }
+
+function save2file (event) {
+  // prevent default, scroll to top of the page
+  event.preventDefault();
+
+  let element = event.target;
+  let textarea = element.nextElementSibling.nextElementSibling;
+
+  // get content of textarea
+  let batContent = textarea.value;
+
+  // create Blob object, make content binary
+  let blob = new Blob([batContent], { type: 'text/plain' });
+
+  // create a URL pointing to this object Blob
+  let url = URL.createObjectURL(blob);
+
+  // create a hidden DOM <a> to trigger download
+  let downloadLink = document.createElement('a');
+  downloadLink.href = url;
+  downloadLink.download = element.getAttribute("filename");  // set file name by attribute
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
+
+  // remove URL DOM after download
+  document.body.removeChild(downloadLink);
+  URL.revokeObjectURL(url);
+}
